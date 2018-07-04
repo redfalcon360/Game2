@@ -9,8 +9,11 @@
 image_angle = point_direction(x,y,mouse_x,mouse_y); //This code makes sure the player is facing where the mouse is
 //The code following this will determine the shooting mechanics, as of right now the mechanics are very basic.
 
-	if mouse_check_button(mb_left) {
-	instance_create_layer(x,y,"Action Layer", obj_Chains);
+	if mouse_check_button(mb_left) && cooldown <= 0 {
+	instance_create_layer(x,y,"ActionLayer", obj_chainfarter);
+	global.farting = true;
+	cooldown = 120
 	}
-	if mouse_check_button(mb_right){	
-	}
+
+	
+	cooldown = cooldown - 1
